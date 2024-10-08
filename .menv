@@ -1,0 +1,5 @@
+DB_NAME=Django Test
+DB_user=postgres
+DB_PASSWORD=Maman
+DB_HOST=localhost
+
