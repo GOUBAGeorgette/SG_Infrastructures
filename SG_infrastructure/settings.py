@@ -33,6 +33,9 @@ import os  # Assure-toi que cette ligne est présente
 # Application definition
 
 INSTALLED_APPS = [
+     'SG_infrastructure',
+      'admin_interface',  # Ajout de django-admin-interface
+    'colorfield',       # Nécessaire pour django-admin-interface
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -40,10 +43,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'infra_track',
+    
 ]
 
 # URL pour accéder aux fichiers statiques
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Chemin absolu vers le répertoire de collecte des fichiers statiques
 
 # Dossier où Django va chercher les fichiers statiques
 STATICFILES_DIRS = [
@@ -65,7 +70,7 @@ ROOT_URLCONF = 'SG_infrastructure.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -77,6 +82,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'SG_infrastructure.wsgi.application'
 
@@ -134,3 +140,4 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+

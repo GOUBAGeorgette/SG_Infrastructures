@@ -4,19 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Confirmation</title>
-    <!-- Lien vers Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #6c757d; /* Fond gris souris foncé */
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 30px;
+            background-color: #ffffff; /* Fond blanc */
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Ombre */
+            transition: transform 0.3s; /* Animation */
+        }
+
+        .container:hover {
+            transform: scale(1.02); /* Effet de zoom léger */
+        }
+
+        h1 {
+            color: #007bff; /* Couleur du titre */
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #555555; /* Couleur du texte */
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        a {
+            text-decoration: none; /* Pas de soulignement */
+            color: white; /* Texte blanc */
+            background-color: #28a745; /* Vert éclatant */
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s; /* Animation */
+        }
+
+        a:hover {
+            background-color: #218838; /* Vert plus foncé au survol */
+            transform: scale(1.05); /* Effet de survol */
+        }
+    </style>
 </head>
 <body>
-    <div class="container mt-5">
-        <h1>Merci !</h1>
-        <p>Votre signalement de panne a été soumis avec succès.</p>
-        <a href="{% url 'signaler_panne' %}" class="btn btn-primary">Retourner au formulaire</a>
+    <div class="container">
+        <h1>Signalement de panne soumis avec succès</h1>
+        <p>Merci d'avoir signalé la panne. Nous allons traiter votre demande.</p>
+        <a href="/">Retour à l'accueil</a>
     </div>
-
-    <!-- Lien vers Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.11/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

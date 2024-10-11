@@ -6,23 +6,109 @@
     <title>Signaler une Panne</title>
     <!-- Lien vers Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #343a40, #495057); /* Dégradé sombre */
+            font-family: 'Arial', sans-serif;
+            color: #ffffff; /* Couleur du texte par défaut */
+        }
+        .navbar {
+            background-color: #007bff; /* Bleu ciel */
+        }
+        .navbar-brand, .nav-link {
+            color: #ffffff !important; /* Texte blanc */
+            transition: color 0.3s;
+        }
+        .navbar-brand:hover, .nav-link:hover {
+            color: #ffc107 !important; /* Jaune au survol */
+        }
+        .form-container {
+            background-color: #ffffff; /* Fond blanc pour le formulaire */
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            margin-top: 40px;
+            transition: transform 0.3s;
+        }
+        .form-container:hover {
+            transform: scale(1.02); /* Effet de zoom léger */
+        }
+        .form-title {
+            text-align: center;
+            color: #007bff; /* Couleur du titre */
+            margin-bottom: 30px;
+            font-size: 2.5rem; /* Augmenter la taille du titre */
+            font-weight: bold;
+        }
+        .form-group label {
+            color: #007bff; /* Couleur des labels */
+            font-weight: bold; /* Gras pour les labels */
+        }
+        .btn-custom {
+            background-color: #28a745; /* Vert éclatant */
+            color: white;
+            padding: 15px;
+            font-size: 1.2rem;
+            border-radius: 30px;
+            transition: background-color 0.3s, transform 0.3s;
+            border: none; /* Suppression de la bordure */
+        }
+        .btn-custom:hover {
+            background-color: #218838; /* Vert plus foncé au survol */
+            transform: scale(1.05); /* Effet de survol */
+        }
+        footer {
+            background-color: #343a40; /* Couleur sombre */
+            color: #ffffff; /* Texte blanc pour le footer */
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 40px;
+        }
+    </style>
 </head>
 <body>
-    <div class="container mt-5">
-        <h1>Formulaire de Signalement de Panne</h1>
-        <form method="post">
-            {% csrf_token %}
-            <div class="form-group">
-                <label for="titre">Titre</label>
-                <input type="text" class="form-control" id="titre" name="titre" required>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Infra_Track</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">À propos</a>
+                    </li>
+                </ul>
             </div>
-            <div class="form-group">
-                <label for="details">Détails</label>
-                <textarea class="form-control" id="details" name="details" rows="4" required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Signaler</button>
-        </form>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="form-title">Formulaire de Signalement de Panne</h1>
+        <div class="form-container">
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="titre">Titre</label>
+                    <input type="text" class="form-control" id="titre" name="titre" required>
+                </div>
+                <div class="form-group">
+                    <label for="details">Explication</label>
+                    <textarea class="form-control" id="details" name="details" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-custom btn-block">Envoyer</button>
+            </form>
+        </div>
     </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Infra_Track. Tous droits réservés.</p>
+    </footer>
 
     <!-- Lien vers Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -30,4 +116,3 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
-

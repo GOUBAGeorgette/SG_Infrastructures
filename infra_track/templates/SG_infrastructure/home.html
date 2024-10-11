@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil</title>
+    <!-- Bootstrap CSS -->
+    <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            background-color: #f0f2f5; /* Fond gris clair */
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #007bff; /* Couleur bleu foncé */
+            padding: 1rem;
+        }
+
+        .navbar-brand,
+        .nav-link {
+            color: #ffffff !important; /* Texte blanc */
+            transition: color 0.3s;
+        }
+
+        .navbar-brand:hover,
+        .nav-link:hover {
+            color: #f0f8ff !important; /* Blanc très clair au survol */
+        }
+
+        /* Hero Section */
+        .hero {
+            background: url('https://source.unsplash.com/1600x900/?nature,city') no-repeat center center;
+            background-size: cover;
+            color: #ffffff; /* Texte blanc */
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5); /* Overlay sombre */
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Ombre portée */
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            animation: fadeInUp 1s;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Ombre portée */
+        }
+
+        .btn-custom {
+            background-color: #28a745; /* Vert éclatant */
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border-radius: 30px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-custom:hover {
+            background-color: #218838; /* Vert plus foncé au survol */
+        }
+
+        /* Footer */
+        footer {
+            background-color: #343a40;
+            color: #ffffff; /* Texte blanc très clair pour le footer */
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer a {
+            color: #ffc107; /* Couleur jaune pour les liens */
+            text-decoration: underline; /* Souligner les liens */
+            transition: color 0.3s; /* Transition de couleur pour les liens */
+        }
+
+        footer a:hover {
+            color: #ffeb3b; /* Jaune plus clair au survol */
+        }
+
+        /* Section Identifiants */
+        .user-info {
+            margin: 40px 0;
+            padding: 40px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .user-info h2 {
+            margin-bottom: 30px;
+            text-align: center;
+            color: #007bff;
+        }
+
+        .form-group {
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .form-group input {
+            padding-left: 40px;
+            height: 50px;
+            border-radius: 30px;
+            box-shadow: none;
+            border: 1px solid #ddd;
+        }
+
+        .form-group .fa {
+            position: absolute;
+            top: 50%;
+            left: 15px;
+            transform: translateY(-50%);
+            color: #007bff;
+            font-size: 1.2rem;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            border-radius: 30px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Infra_Track</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#"><i class="fas fa-home"></i> Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signaler_panne/"><i class="fas fa-exclamation-triangle"></i> Signaler une panne</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-info-circle"></i> À propos</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="container">
+            <h1>Bienvenue sur la page d'accueil</h1>
+            <p>Ceci est la page d'accueil de Infra_Track. Profitez de notre service.</p>
+            <a href="/signaler_panne/" class="btn btn-custom btn-lg">Signaler une panne</a>
+        </div>
+    </div>
+
+    <!-- Section Identifiants -->
+    <div class="container user-info">
+        <h2>Veuillez entrer vos identifiants</h2>
+        <form>
+            <div class="form-group">
+                <i class="fas fa-envelope"></i>
+                <input type="email" class="form-control" id="email" placeholder="Entrez votre adresse e-mail">
+            </div>
+            <div class="form-group">
+                <i class="fas fa-phone"></i>
+                <input type="tel" class="form-control" id="phone" placeholder="Entrez votre numéro de téléphone">
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Soumettre</button>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Infra_Track. Tous droits réservés. <a href="#" class="text-warning">Mentions légales</a></p>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
